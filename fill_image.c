@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:14:59 2015 florian donadei
-** Last update Sat Jun 13 15:56:47 2015 florian donadei
+** Last update Sat Jun 13 16:24:52 2015 florian donadei
 */
 
 #include "rush.h"
@@ -22,6 +22,7 @@ void             calc(t_param *param, int x, int y)
   t_vector      v1;
   t_coord       p;
   t_eyes	eyes;
+  t_color	color;
 
   p.x = x;
   p.y = y;
@@ -32,6 +33,9 @@ void             calc(t_param *param, int x, int y)
   eyes.x = EYES_X;
   eyes.y = EYES_Y;
   eyes.z = EYES_Z;
+  color.red = 50;
+  color.green = 150;
+  color.blue = 50;
   /* param->p = &p; */
   /* param->v1 = &v1; */
   /* param->eyes = &eyes; */
