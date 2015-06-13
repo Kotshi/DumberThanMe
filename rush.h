@@ -5,17 +5,15 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:17:20 2015 florian donadei
-** Last update Sat Jun 13 15:48:25 2015 florian donadei
+** Last update Sat Jun 13 17:54:33 2015 Picou Gildas
 */
 
-#ifndef DISPLAY_H_
-# define DISPLAY_H_
+#ifndef RUSH_H_
+# define RUSH_H_
 
 #define X_IMG 1080
 #define Y_IMG 700
-#define EYES_X 300
-#define EYES_Y 0
-#define EYES_Z 100
+#define WIN "I am not a cube"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -31,49 +29,33 @@ typedef struct  s_mlx
 
 typedef struct  s_img
 {
-  char          *data;
+  void          *data;
   int           bpp;
   int           sizeline;
   int           endian;
   int           color[3];
 }               t_img;
 
-typedef struct  s_vector
+typedef struct  s_pos
 {
-  int	x;
-  int	y;
-  int	z;
-}               t_vector;
-
-typedef struct  s_eyes
-{
-  int	x;
-  int	y;
-  int	z;
-}               t_eyes;
+  int		x;
+  int		y;
+  int		z;
+}               t_pos;
 
 typedef struct  s_color
 {
-  int	red;
-  int	green;
-  int	blue;
+  int		red;
+  int		green;
+  int		blue;
 }               t_color;
-
-typedef struct  s_coord
-{
-  int	x;
-  int	y;
-  int	z;
-}               t_coord;
 
 typedef struct  s_param
 {
   t_mlx         *mlx;
   t_img         *img;
-  t_vector      *vector;
-  t_eyes	*eyes;
-  t_color	*color;
-  t_coord	*coord;
+  t_color	color;
+  float		pos[2];
 }               t_param;
 
 #endif
