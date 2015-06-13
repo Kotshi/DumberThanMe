@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:14:59 2015 florian donadei
-** Last update Sat Jun 13 17:47:27 2015 Picou Gildas
+** Last update Sat Jun 13 19:08:36 2015 Picou Gildas
 */
 
 #include "rush.h"
@@ -19,6 +19,9 @@ void            change_color(t_img *img, int r, int v, int b)
 
 void             init(t_param *param)
 {
+  param->curve.angle = 0;
+  param->curve.goal = rand() % 360;
+  param->curve.minmax = 1;
   param->pos[0] = X_IMG / 2;
   param->pos[1] = Y_IMG / 2;
 }

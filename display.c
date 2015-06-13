@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:13:45 2015 florian donadei
-** Last update Sat Jun 13 17:54:58 2015 Picou Gildas
+** Last update Sat Jun 13 18:23:47 2015 Picou Gildas
 */
 
 #include "rush.h"
@@ -40,16 +40,27 @@ void            init_mlx(t_mlx *mlx, t_img *img)
     exit(0);
 }
 
+int		loop_hook(void *p)
+{
+  t_param	*param;
+
+  //La fonction de ces deux CASSOS
+
+  return (0);
+}
+
 void            display(t_param *param)
 {
   t_mlx         mlx;
   t_img         img;
 
+  srand(time(NULL));
   param->mlx = &mlx;
   param->img = &img;
   init_mlx(&mlx, &img);
   init(param);
-  mlx_key_hook(mlx.win, key_hook, param);
+  mlx_key_hook(mlx.win, &key_hook, param);
+  mlx_loop_hook(mlx.win, &loop_hook, param);
   mlx_expose_hook(mlx.win, &expose, param);
   mlx_loop(mlx.ptr);
 }

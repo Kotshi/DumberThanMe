@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:17:20 2015 florian donadei
-** Last update Sat Jun 13 17:54:33 2015 Picou Gildas
+** Last update Sat Jun 13 19:00:33 2015 Picou Gildas
 */
 
 #ifndef RUSH_H_
@@ -50,12 +50,20 @@ typedef struct  s_color
   int		blue;
 }               t_color;
 
+typedef struct	s_curve
+{
+  int		angle;
+  int		goal;
+  int		minsup;
+}		t_curve;
+
 typedef struct  s_param
 {
   t_mlx         *mlx;
   t_img         *img;
   t_color	color;
   float		pos[2];
+  t_curve	curve;
 }               t_param;
 
 #endif

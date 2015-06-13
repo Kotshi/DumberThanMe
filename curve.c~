@@ -1,0 +1,13 @@
+/*
+** curve.c for  in /home/picou_g/rendu/DumberThanMe
+** 
+** Made by Picou Gildas
+** Login   <picou_g@epitech.net>
+** 
+** Started on  Sat Jun 13 18:19:12 2015 Picou Gildas
+** Last update Sat Jun 13 18:21:05 2015 Picou Gildas
+*/
+
+#include "rush.h"
+
+void	curve(t_param *param)
