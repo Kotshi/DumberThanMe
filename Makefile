@@ -4,7 +4,7 @@
 ## Login   <leboeu_q@epitech.net>
 ##
 ## Started on  Wed May  6 11:18:30 2015 Quentin Leboeuf
-## Last update Sat Jun 13 17:46:33 2015 Picou Gildas
+## Last update Sat Jun 13 19:26:14 2015 Picou Gildas
 ##
 
 CC	= gcc
@@ -14,6 +14,7 @@ RM	= rm -rf
 SRC	= display.c \
 	  fill_image.c \
 	  main.c \
+	  curve.c \
 	  my_pixel_put_to_image.c
 
 OBJ	= $(SRC:.c=.o)

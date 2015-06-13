@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:17:20 2015 florian donadei
-** Last update Sat Jun 13 19:00:33 2015 Picou Gildas
+** Last update Sat Jun 13 21:25:23 2015 Picou Gildas
 */
 
 #ifndef RUSH_H_
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include "minilibx/mlx.h"
+#include <mlx.h>
 
 typedef struct  s_mlx
 {
@@ -52,9 +52,10 @@ typedef struct  s_color
 
 typedef struct	s_curve
 {
-  int		angle;
-  int		goal;
-  int		minsup;
+  float		coeff;
+  float		angle;
+  int		cnt;
+  int		max;
 }		t_curve;
 
 typedef struct  s_param

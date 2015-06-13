@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:13:45 2015 florian donadei
-** Last update Sat Jun 13 18:23:47 2015 Picou Gildas
+** Last update Sat Jun 13 20:28:51 2015 Picou Gildas
 */
 
 #include "rush.h"
@@ -45,7 +45,9 @@ int		loop_hook(void *p)
   t_param	*param;
 
   //La fonction de ces deux CASSOS
-
+  param = p;
+  curve(param);
+  expose(param);
   return (0);
 }
 
@@ -60,7 +62,9 @@ void            display(t_param *param)
   init_mlx(&mlx, &img);
   init(param);
   mlx_key_hook(mlx.win, &key_hook, param);
-  mlx_loop_hook(mlx.win, &loop_hook, param);
+  loop_hook(param);
+  expose(param);
   mlx_expose_hook(mlx.win, &expose, param);
+  mlx_loop_hook(mlx.ptr, &loop_hook, param);
   mlx_loop(mlx.ptr);
 }
