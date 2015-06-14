@@ -5,7 +5,7 @@
 ** Login   <picou_g@epitech.net>
 ** 
 ** Started on  Sat Jun 13 18:19:12 2015 Picou Gildas
-** Last update Sat Jun 13 22:28:03 2015 Picou Gildas
+** Last update Sun Jun 14 11:09:02 2015 Picou Gildas
 */
 
 #include "rush.h"
@@ -41,14 +41,14 @@ void	curve(t_param *param)
     {
       param->curve.cnt = 0;
       coeff =
-	((rand() % ( 2 * param->color.green + 1)) - (param->color.green)) / 40;
+	((rand() % (2 * param->color.green + 1)) - (param->color.green)) / 40;
       coeff = ((int)M_PI * coeff / 180);
       param->curve.coeff = coeff;
     }
-  usleep(50);
+  usleep(10 * param->color.green);
   param->curve.cnt++;
-  coeff = param->curve.coeff;
-  param->curve.angle += coeff;
+  param->curve.coeff += (param->curve.coeff < 0.0001 ? 0.0001 : -0.0001);
+  param->curve.angle += param->curve.coeff;
   vec[0] = cos(param->curve.angle);
   vec[1] = sin(param->curve.angle);
   border(param, vec);
