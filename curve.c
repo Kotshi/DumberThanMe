@@ -5,20 +5,10 @@
 ** Login   <picou_g@epitech.net>
 ** 
 ** Started on  Sat Jun 13 18:19:12 2015 Picou Gildas
-** Last update Sun Jun 14 11:09:02 2015 Picou Gildas
+** Last update Sun Jun 14 16:22:00 2015 Picou Gildas
 */
 
 #include "rush.h"
-
-int	color(t_color *color)
-{
-  int	ret;
-
-  ret = color->red << 16;
-  ret += color->green << 8;
-  ret += color->blue;
-  return (ret);
-}
 
 void	border(t_param *param, float *vec)
 {
@@ -28,8 +18,8 @@ void	border(t_param *param, float *vec)
     param->pos[1] = 0;
   if (param->pos[0] + vec[0] < 0)
     param->pos[0] = X_IMG - 1;
-  else if (param->pos[1] + vec[1] >= X_IMG - 1)
-    param->pos[03315250] = 0;
+  else if ((param->pos[0] + vec[0]) >= (X_IMG - 1))
+    param->pos[0] = 0;
 }
 
 void	curve(t_param *param)
@@ -37,7 +27,8 @@ void	curve(t_param *param)
   float	vec[2];
   float	coeff;
 
-  if (!(rand() % (param->color.green - param->curve.cnt)))
+  if (!(rand() %
+	(ABS(param->color.green - param->color.red / 4) - param->curve.cnt)))
     {
       param->curve.cnt = 0;
       coeff =
@@ -45,7 +36,11 @@ void	curve(t_param *param)
       coeff = ((int)M_PI * coeff / 180);
       param->curve.coeff = coeff;
     }
-  usleep(10 * param->color.green);
+  if (!(rand() % (50 - param->color.red)))
+    param->curve.angle = rand() % (int)(2 * M_PI);
+  if (param->curve.coeff < param->color.red / 500)
+    param->curve.coeff = 0;
+  usleep(20 * param->color.green);
   param->curve.cnt++;
   param->curve.coeff += (param->curve.coeff < 0.0001 ? 0.0001 : -0.0001);
   param->curve.angle += param->curve.coeff;
@@ -55,5 +50,6 @@ void	curve(t_param *param)
   param->pos[0] += vec[0];
   param->pos[1] += vec[1];
   my_pixel_put_to_image(param->img, (int)param->pos[0],
-			(int)param->pos[1], color(&(param->color)));
+  			(int)param->pos[1], get_color(&(param->color)));
+  anti_aliasing(param);
 }

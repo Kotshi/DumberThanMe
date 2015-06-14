@@ -5,7 +5,7 @@
 ** Login   <donade_f@epitech.net>
 ** 
 ** Started on  Sat Jun 13 15:17:20 2015 florian donadei
-** Last update Sat Jun 13 21:25:23 2015 Picou Gildas
+** Last update Sun Jun 14 14:15:03 2015 Picou Gildas
 */
 
 #ifndef RUSH_H_
@@ -14,6 +14,7 @@
 #define X_IMG 1080
 #define Y_IMG 700
 #define WIN "I am not a cube"
+#define ABS(value) (value < 0 ? -value : value)
 
 #include <stdlib.h>
 #include <stdio.h>

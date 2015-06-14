@@ -4,7 +4,7 @@
 ## Login   <leboeu_q@epitech.net>
 ##
 ## Started on  Wed May  6 11:18:30 2015 Quentin Leboeuf
-## Last update Sat Jun 13 19:26:14 2015 Picou Gildas
+## Last update Sun Jun 14 12:41:20 2015 Picou Gildas
 ##
 
 CC	= gcc
@@ -15,7 +15,9 @@ SRC	= display.c \
 	  fill_image.c \
 	  main.c \
 	  curve.c \
-	  my_pixel_put_to_image.c
+	  my_pixel_put_to_image.c \
+	  get_color.c \
+	  anti_aliasing.c
 
 OBJ	= $(SRC:.c=.o)
 

@@ -1,0 +1,64 @@
+/*
+** anti_aliasing.c for  in /home/picou_g/rendu/DumberThanMe
+** 
+** Made by Picou Gildas
+** Login   <picou_g@epitech.net>
+** 
+** Started on  Sun Jun 14 12:32:10 2015 Picou Gildas
+** Last update Sun Jun 14 12:32:29 2015 Picou Gildas
+*/
+
+#include "rush.h"
+
+void	add_color(int *rgb, int ret, int i)
+{
+  if (i)
+    {
+      rgb[0] = 0;
+      rgb[1] = 0;
+      rgb[2] = 0;
+    }
+  else
+    {
+      r[0] += ret && 0xFF0000 >> 16;
+      r[1] += ret && 0x00FF00 >> 8;
+      r[2] += ret && 0x0000FF;
+    }
+}
+
+int	get_pxl_sample(t_param *param, int posX, int posY)
+{
+  int	cnt[2];
+  int	samples;
+  int	ret;
+  int	rgb[3];
+
+  if (posX < 0 || posX >= X_IMG || posY < 0 || posY >= Y_IMG)
+    return (-1);
+  cnt[0] = -2;
+  samples = 0;
+  while (++cnt[0] != 2)
+    {
+      cnt[1] = -2;
+      while (++cnt[1] != 2)
+	{
+	  if ((ret = get_imgpxl
+	       (param->img, param->pos[0] + cnt[0], param->pos[1] + cnt[1]))
+	      != -1)
+	    {
+	      samples++;
+	      add_color(rgb, ret, 1);
+	    }
+	}
+    }
+}
+
+void	anti_aliasing(t_param *param)
+{
+  int	color[4];
+
+  color[0] = get_pxl_sample(param, param->pos[0] - 1, param->pos[1]);
+  color[1] = get_pxl_sample(param, param->pos[0], param->pos[1] - 1);
+  color[2] = get_pxl_sample(param, param->pos[0] + 1, param->pos[1]);
+  color[3] = get_pxl_sample(param, param->pos[0], param->pos[1] + 1);
+}
